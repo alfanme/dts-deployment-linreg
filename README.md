@@ -15,7 +15,7 @@ Repository ini berisi semua file yang dibutuhkan untuk melakukan deployment mode
 Agar dapat memprediksi biaya asuransi, data input model harus mengikuti format sebagai berikut:\
 `[Age, Sex(Female), Sex(Male), Smoker(No), Smoker(Yes)]`
 
-Sebagai contoh:
+Sebagai contoh:\
 Age: 20\
 Sex: Male\
 Smoker: No
