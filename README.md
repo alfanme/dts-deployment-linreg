@@ -55,7 +55,7 @@ Akan diubah menjadi:\
 
 Setelah API berjalan:
 
-1. Anda akan diberikan URL untuk membuka website berupa `localhost:5000/` atau `127.0.0.1/`
+1. Anda akan diberikan URL untuk membuka website berupa `localhost:5000/` atau `127.0.0.1:5000/`
 1. Buka URL dengan browser, coba masukkan data yang ingin di prediksi
 1. Anda akan diberikan estimasi biaya asuransi pada sisi kanan halaman website
 
