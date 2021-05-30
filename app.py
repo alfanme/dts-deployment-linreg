@@ -16,17 +16,17 @@ def predict():
     Predict the insurance cost based on user inputs
     and render the result to the html page
     '''
-    item = [x for x in request.form.values()]
+    age, sex, smoker = [x for x in request.form.values()]
 
     data = []
 
-    data.append(int(item[0]))
-    if item[1] == 'Male':
+    data.append(int(age))
+    if sex == 'Laki-laki':
         data.extend([0, 1])
     else:
         data.extend([1, 0])
 
-    if item[2] == 'Yes':
+    if smoker == 'Ya':
         data.extend([0, 1])
     else:
         data.extend([1, 0])
@@ -35,7 +35,7 @@ def predict():
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', insurance_cost=output, age=data[0])
+    return render_template('index.html', insurance_cost=output, age=age, sex=sex, smoker=smoker)
 
 @app.route('/predict_api', methods=['GET', 'POST'])
 def predict_api():

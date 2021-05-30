@@ -34,30 +34,35 @@
                 method="post"
                 class="flex flex-col"
             >
-                <label for="Age" class="mb-2">Usia</label>
+                <label for="Usia" class="mb-2">Usia</label>
                 <input
                     type="text"
-                    name="Age"
-                    placeholder="Age"
+                    name="Usia"
+                    placeholder="Usia"
                     required="required"
-                    value="{{ age }}"
                     class="p-4 bg-gray-100 rounded-md"
                 />
 
-                <label for="Sex" class="mt-4 mb-2">Jenis Kelamin:</label>
-                <select name="Sex" id="Sex" class="p-4 bg-gray-100 rounded-md">
-                    <option value="Male">Laki-laki</option>
-                    <option value="Female">Perempuan</option>
-                </select>
-
-                <label for="Smoker" class="mt-4 mb-2">Perokok:</label>
+                <label for="Jenis Kelamin" class="mt-4 mb-2"
+                    >Jenis Kelamin:</label
+                >
                 <select
-                    name="Smoker"
-                    id="Smoker"
+                    name="Jenis Kelamin"
+                    id="Jenis Kelamin"
                     class="p-4 bg-gray-100 rounded-md"
                 >
-                    <option value="Yes">Ya</option>
-                    <option value="No">Tidak</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+
+                <label for="Perokok" class="mt-4 mb-2">Perokok:</label>
+                <select
+                    name="Perokok"
+                    id="Perokok"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option value="Ya">Ya</option>
+                    <option value="Tidak">Tidak</option>
                 </select>
 
                 <button
@@ -94,12 +99,19 @@
                 </button>
             </form>
         </main>
-        <section class="mt-8 h-full rounded-lg flex-auto md:mt-0 md:ml-8">
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
             <div class="bg-white p-16 rounded-lg">
                 <h1 class="text-2xl mb-8">
                     Estimasi biaya asuransi Anda adalah
                 </h1>
                 <h2 class="text-5xl font-bold">USD {{ insurance_cost }}</h2>
+                {% if (insurance_cost) != 0 %}
+                <div class="mt-8">
+                    <p>Usia: {{ age }} tahun</p>
+                    <p>Jenis kelamin: {{ sex }}</p>
+                    <p>Status perokok: {{ smoker }}</p>
+                </div>
+                {% endif %}
             </div>
             <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
                 <img
