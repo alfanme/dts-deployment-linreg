@@ -32,39 +32,9 @@ def predict():
         data.extend([1, 0])
     
     prediction = model.predict([data])
-
     output = round(prediction[0], 2)
 
     return render_template('index.html', insurance_cost=output, age=age, sex=sex, smoker=smoker)
-
-@app.route('/predict_api', methods=['GET', 'POST'])
-def predict_api():
-    """
-    Route for external API request with JSON data
-    and returns all data + predicted insurance cost
-    """
-    item = request.json
-    data = []
-
-    data.append(int(item["Age"]))
-    if item["Sex"] == 'Male':
-        data.extend([0, 1])
-    else:
-        data.extend([1, 0])
-
-    if item["Smoker"] == 'Yes':
-        data.extend([0, 1])
-    else:
-        data.extend([1, 0])
-    
-    prediction = model.predict([data])
-
-    output = round(prediction[0], 2)
-    item["Insurance Cost"] = output
-
-    res = jsonify(item)
-
-    return res
 
 
 if __name__ == '__main__':
